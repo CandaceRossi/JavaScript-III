@@ -38,15 +38,18 @@ function CuteAnimal(cameo) {
     this.sound = 'pet me';
     this.cameo = cameo;
     this.speak = function() {
-        console.log(this.sound + this.cameo);
-        console.log(this);
+        return (this.sound + this.cameo);
+        return (this);
     }
 }
 const kitty = new CuteAnimal('Meow');
 const puppy = new CuteAnimal('Arf');
-kitty.speak();
-puppy.speak();
+console.log(kitty.speak());
+console.log(puppy.speak());
 
 // Principle 4
 
 // code example for Explicit Binding
+
+console.log(kitty.speak.call(puppy));
+console.log(puppy.speak.apply(kitty));
