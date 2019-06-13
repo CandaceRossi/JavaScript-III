@@ -1,26 +1,55 @@
 /* The for principles of "this";
-* in your own words. explain the four principle for the "this" keyword below.
-*
-* 1. 
-* 2. 
-* 3. 
-* 4. 
-*
-* write out a code example of each explanation above
-*/
+ * in your own words. explain the four principle for the "this" keyword below.
+ *
+ * 1. Window/Global Object Binding
+ * 2. Implicit Binding
+ * 3. New Binding
+ * 4. Explicit Binding
+ *
+ * write out a code example of each explanation above
+ */
 
 // Principle 1
 
 // code example for Window Binding
+function hello(name) {
+    return "Hello," + this;
+    this;
+}
+console.log(hello('web 21'));
 
 // Principle 2
 
 // code example for Implicit Binding
+let foodie = {
+    name: "candace",
+    age: 34,
+    food: "Falafel",
+    cook: function() {
+        return `${this.name} loves to cook ${this.food}`;
+    }
+}
+console.log(foodie.cook());
 
 // Principle 3
 
 // code example for New Binding
+function CuteAnimal(cameo) {
+    this.sound = 'pet me';
+    this.cameo = cameo;
+    this.speak = function() {
+        return (this.sound + this.cameo);
+        return (this);
+    }
+}
+const kitty = new CuteAnimal('Meow');
+const puppy = new CuteAnimal('Arf');
+console.log(kitty.speak());
+console.log(puppy.speak());
 
 // Principle 4
 
 // code example for Explicit Binding
+
+console.log(kitty.speak.call(puppy));
+console.log(puppy.speak.apply(kitty));
